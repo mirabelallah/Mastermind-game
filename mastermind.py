@@ -5,6 +5,14 @@ def generation_combinaison():
     return [random.randint(0, 6) for _ in range(4)]
 
 
+def demander_combinaison():
+    while True:
+        combinaison = input("proposer une combinaison a 4 chiffre").split()
+        if len(combinaison) == 4 and all(c.digit() for c in combinaison):
+            return [int(c) for c in combinaison]
+        print("entree invalide. Veuillez entrer 4 chiffres")
+
+
 def comparaion_combinaisons(secret, joueur):
     bonne_po = 0
     mauvaise_po = 0
@@ -48,11 +56,28 @@ def jeu_mastermind():
     if bonne_po == 4:
         print("Félicitations ! Tu as trouvé la combinaison secrète !")
     return
- 
+
     nbre_tentatives -= 1
 
     print(f"\nDommage! la combinaison secrete est: {combinaison_secrete}.")
 
 
+def afficher_menu():
+    while True:
+        print("\nMenu Principal:")
+        print("1. Commencer une partie")
+        print("2. Quitter")
+
+        choix = input("choisis une option( 1 ou 2):")
+
+        if choix == '1':
+            jeu_mastermind()
+        elif choix == '2':
+            print("A bientot !")
+            break
+        else:
+            print("Choix invalides. Essaie encore")
+
+
 if __name__ == "__main__":
-    jeu_mastermind()
+    afficher_menu()
