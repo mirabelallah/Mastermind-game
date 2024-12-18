@@ -36,7 +36,7 @@ def jeu_mastermind():
             joueur = [int(x) for x in entree if x.isdigit()]
             if len(joueur) != 4:
                 raise (ValueError(
-                    "Saisie incorrecte. Tu dois entrer un code à 4 chiffres exactement!!"))
+                    "Saisie incorrecte. Tu dois entrer un code à 4 chiffres!!"))
         except ValueError as e:
             print(e)
             continue
